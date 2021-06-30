@@ -31,6 +31,30 @@ result = basket.items.length
 // Verify
 console.log(assertEquals(result, expectedResult))
 
-// try to remove 
+
+
+
+
+// try to remove an item by name
+console.log('\nTest to remove an item: ')
+// Setup
+basket = new Basket()
+
+item = 'ham and cheese bagel'
+seconditem = 'tuna bagel'
+
+basket.add(item)
+basket.add(seconditem)
+
+expectedResult = 2
+
+// Execute
+basket.remove('tuna bagel')
+result = basket.items.length
+
+// Verify
+console.log(assertEquals(result, expectedResult))
+
+
 
 
