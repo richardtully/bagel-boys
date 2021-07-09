@@ -1,8 +1,8 @@
 const assertEquals = require('./../test-framework.js')
 const Basket = require('./../src/basket.js')
-const shelves = require('./../src/shelves')
 
 let basket, item, result, result2, expectedResult, size, thirditem
+let price = ''
 
 // Try to add one item to basket
 
@@ -130,33 +130,20 @@ result = basket.add('Chicken Bagel')
 // Verify
 console.log(assertEquals(result, expectedResult))
 
+// --------------------- Test to see the price of each item before I add it to my basket -----
 
-// --------------------- Test to see if we can check the price of an item
 
-// try to add two items to basket 
-console.log('\nCan we check the price of an item: ')
-
+console.log ('\n Test to see the price of a bagel before adding it')
 // Setup
-expectedResult = 3.8
 
-// Execute
-result = shelves['Chicken Bagel']
-// Verify
-console.log(assertEquals(result, expectedResult))
+basket = new Basket(123, price)
 
+// Execute 
 
-// --------------------- Test to see if we can check the value of the basket
+result = basket.add('Ham Bagel', '£2.50')
+console.log(price)
 
-// try to add two items to basket 
-console.log('\nCan we check the value of the basket: ')
+// Verify 
 
-// Setup
-basket = new Basket(123)
-basket.add('Chicken Bagel')
-basket.add('Ham and Cheese Bagel')
-expectedResult = 7
+console.log(result)
 
-// Execute
-result = basket.checkBasketValue()
-// Verify
-console.log(assertEquals(result, expectedResult))

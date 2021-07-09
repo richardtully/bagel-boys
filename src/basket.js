@@ -1,26 +1,26 @@
-const shelves = require('./shelves')
-
 class Basket {
     constructor(size = 3) {
         this.items = []
         this.size = size
+        this.price = ''
     }
     add(item){
+        //if(this.items.includes(price)){ 
+            //console.log('\nThis bagel costs: ' + price)
+        }
         if (this.isFull() === true){
             console.log('\nSorry, the basket is full')
             return 0
         } else if (this.isThere(item)) {
-            console.log('We already have one of those in the basket')
+            console.log('\nWe already have one of those in the basket')
             return 0
-        } else if (!(item in shelves)){
-            console.log('That item is not on the shelves')
-            return 0
-        }
-        else{
+        } 
+        else
         this.items.push(item)
         return item
     }
-    }
+    
+    
     remove(item){
         if (this.isThere(item)){
             let index = this.items.indexOf(item);
@@ -33,10 +33,7 @@ class Basket {
         }
         
     }
-    checkBasketValue(){
-        const reducer = (accumulator, currentValue) => shelves[accumulator] + shelves[currentValue]
-        return this.items.reduce(reducer)
-    }
+
     isFull(){ 
         return this.items.length >= this.size
     }
